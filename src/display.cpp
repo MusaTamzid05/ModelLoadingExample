@@ -9,6 +9,11 @@
 #include "shape.h"
 
 #include "triangle.h"
+#include "model.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Engine {
 
@@ -23,8 +28,10 @@ namespace Engine {
         }
 
         std::cout << "Display initialize.\n";
+         glEnable(GL_DEPTH_TEST);
+
+        model = new Model("./assets/backpack.obj");
         
-        shapes.push_back(new Triangle());
 
     }
 
@@ -70,17 +77,23 @@ namespace Engine {
     void Display::draw() {
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
         for(Shape* shape : shapes)
             shape->draw();
+
+        model->draw();
     }
 
     void Display::update() {
 
         for(Shape* shape : shapes)
             shape->update();
+
+        model->update();
+
+
 
     }
 
@@ -89,6 +102,18 @@ namespace Engine {
 
         if(glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(m_window, true);
+
+        if(glfwGetKey(m_window, GLFW_KEY_W) == GLFW_PRESS) {
+            glm::vec3 position = model->position;
+            position.z += 0.3;
+            model->position = position;
+        }
+
+        if(glfwGetKey(m_window, GLFW_KEY_S) == GLFW_PRESS) {
+            glm::vec3 position = model->position;
+            position.z -= 0.3;
+            model->position = position;
+        }
 
 
         for(Shape* shape : shapes)
@@ -102,6 +127,7 @@ namespace Engine {
             std::cerr << "could not run.\n";
             return;
         }
+
 
         while(!glfwWindowShouldClose(m_window)) {
             handle_input();

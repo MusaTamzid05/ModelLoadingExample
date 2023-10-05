@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(gl_play)
+project(assimp_ex)
 
 
 set(LIB_SOURCE_FILES
@@ -39,9 +39,12 @@ set(SOURCE_FILES
     src/shader.cpp
     src/shape.cpp
     src/triangle.cpp
+    src/mesh.cpp
+    src/model.cpp
+    src/camera.cpp
     )
 
-add_executable(gl_play  ${SOURCE_FILES})
+add_executable(assimp_ex  ${SOURCE_FILES})
 
 
 
@@ -50,4 +53,4 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} ${GLEW_INCLUDE
     )
 
 
-target_link_libraries(gl_play  musa_gl_libs )
+target_link_libraries(assimp_ex  musa_gl_libs assimp)

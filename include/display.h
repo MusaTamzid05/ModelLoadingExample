@@ -6,6 +6,7 @@
 
 
 struct GLFWwindow;
+struct Model;
 
 namespace Engine {
 
@@ -46,6 +47,8 @@ namespace Engine {
             GLFWwindow* m_window;
 
             std::vector<Shape*> shapes;
+
+            Model* model;
     };
 
 };

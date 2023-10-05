@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++ -Dmusa_gl_libs_EXPORTS -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/musa_gl_libs.dir/src/glad.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/glad.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/glad.cpp"
+},
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++  -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -o CMakeFiles/assimp_ex.dir/src/main.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/main.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/main.cpp"
+},
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++  -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -o CMakeFiles/assimp_ex.dir/src/display.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/display.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/display.cpp"
+},
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++  -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -o CMakeFiles/assimp_ex.dir/src/shader.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/shader.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/shader.cpp"
+},
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++  -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -o CMakeFiles/assimp_ex.dir/src/shape.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/shape.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/shape.cpp"
+},
+{
+  "directory": "/home/musa/c++_pro/opengl_pro/assimp_example/build",
+  "command": "/usr/bin/c++  -I/home/musa/c++_pro/opengl_pro/assimp_example/include -O2 -g -DNDEBUG -o CMakeFiles/assimp_ex.dir/src/triangle.cpp.o -c /home/musa/c++_pro/opengl_pro/assimp_example/src/triangle.cpp",
+  "file": "/home/musa/c++_pro/opengl_pro/assimp_example/src/triangle.cpp"
+}
+]
