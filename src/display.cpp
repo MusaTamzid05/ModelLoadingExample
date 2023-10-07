@@ -30,7 +30,7 @@ namespace Engine {
         std::cout << "Display initialize.\n";
          glEnable(GL_DEPTH_TEST);
 
-        model = new Model("./assets/backpack/backpack.obj");
+        model = new Model("./assets/beach-ball/beach-ball.obj");
         
 
     }
