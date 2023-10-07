@@ -90,21 +90,9 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
 
 
 void Mesh::draw(Shader* shader) {
-    unsigned int diffuse_nr = 1;
-    unsigned int specular_nr = 1;
 
     for(unsigned int i = 0; i < textures.size(); i += 1) {
         glActiveTexture(GL_TEXTURE0 + i);
-        std::string number;
-        std::string name = textures[i].type;
-
-        if(name == "texture_diffuse")
-            number = std::to_string(diffuse_nr++);
-
-        else if(name == "texture_specular")
-            number = std::to_string(specular_nr++);
-
-        shader->setInt(("material." + name +  number.c_str()), i);
         glBindTexture(GL_TEXTURE_2D, textures[i].id);
     }
 
