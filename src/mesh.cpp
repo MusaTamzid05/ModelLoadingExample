@@ -91,7 +91,33 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
 
 void Mesh::draw(Shader* shader) {
 
+    unsigned int diffuse_nr = 1;
+    unsigned int specular_nr = 1;
+    unsigned int normal_nr = 1;
+    unsigned int height_nr = 1;
+
+
     for(unsigned int i = 0; i < textures.size(); i += 1) {
+
+        std::string number;
+        std::string name = textures[i].type;
+
+        if(name == "texture_diffuse") {
+            number = std::to_string(diffuse_nr);
+            diffuse_nr += 1;
+        }
+
+        else if(name == "texture_specular") {
+            number = std::to_string(specular_nr);
+            specular_nr += 1;
+        }
+
+        std::string color_name = name + number;
+        shader->setInt(color_name, i);
+
+        //std::cout << color_name << "\n";
+
+
         glActiveTexture(GL_TEXTURE0 + i);
         glBindTexture(GL_TEXTURE_2D, textures[i].id);
     }

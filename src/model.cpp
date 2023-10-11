@@ -21,6 +21,8 @@ Model::Model(const std::string& path, bool gamma):gamma_correction(gamma) {
             aiProcess_CalcTangentSpace
             );
 
+     stbi_set_flip_vertically_on_load(true);
+
     if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cerr << "Error assimp " << importer.GetErrorString() << "\n";
         return;
@@ -30,9 +32,9 @@ Model::Model(const std::string& path, bool gamma):gamma_correction(gamma) {
     process_node(scene->mRootNode, scene);
 
     position = glm::vec3(0.0f, 0.0f, -3.0f);
-     stbi_set_flip_vertically_on_load(true);
 
-    shader = new Shader("../shaders/model.vs", "../shaders/model.fs");
+    //shader = new Shader("../shaders/model.vs", "../shaders/model.fs");
+    shader = new Shader("../shaders/backpack.vs", "../shaders/backpack.fs");
 
 }
 
