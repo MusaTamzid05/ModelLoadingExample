@@ -30,21 +30,21 @@ namespace Engine {
         std::cout << "Display initialize.\n";
         glEnable(GL_DEPTH_TEST);
 
-        /*
         model = new Model(
-                "./assets/backpack/backpack.obj", 
+                "../models/backpack/backpack.obj", 
                 "../shaders/backpack.vs",
                 "../shaders/backpack.fs"
                 );
-        */
 
 
+        /*
         model = new Model(
-                "./assets/beach-ball/beach-ball.obj", 
+                "../models/beach-ball/beach-ball.obj", 
                 "../shaders/beach-ball.vs",
                 "../shaders/beach-ball.fs",
                 false
                 );
+        */
         
 
     }
