@@ -35,12 +35,21 @@ struct Mesh {
     std::vector<Texture> textures;
 
     Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices,
+            const glm::vec4& diffuse, const  glm::vec4& specular);
+
+    void init();
 
     void draw(Shader* shader);
 
     unsigned int VAO;
     unsigned int VBO;
     unsigned int EBO;
+
+    glm::vec4 diffuse;
+    glm::vec4 specular;
+
+    bool texture_active;
 }; 
 
 #endif

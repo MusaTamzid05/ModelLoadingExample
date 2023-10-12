@@ -9,7 +9,7 @@
 #include "stb_image.h"
 #include <glm/gtx/string_cast.hpp>
 
-Model::Model(const std::string& path, bool gamma):gamma_correction(gamma) {
+Model::Model(const std::string& path, bool texture_active,  bool gamma):texture_active(texture_active), gamma_correction(gamma) {
 
     Assimp::Importer importer;
 
@@ -34,7 +34,7 @@ Model::Model(const std::string& path, bool gamma):gamma_correction(gamma) {
     position = glm::vec3(0.0f, 0.0f, -3.0f);
 
     //shader = new Shader("../shaders/model.vs", "../shaders/model.fs");
-    shader = new Shader("../shaders/backpack.vs", "../shaders/backpack.fs");
+    shader = new Shader("../shaders/beach-ball.vs", "../shaders/beach-ball.fs");
 
 }
 
@@ -111,6 +111,26 @@ Mesh Model::process_mesh(aiMesh* mesh, const aiScene* scene) {
     }
 
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+
+    if(texture_active == false) {
+        aiColor4D diffuse;
+        aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diffuse);
+
+
+        aiColor4D specular;
+        aiGetMaterialColor(material, AI_MATKEY_COLOR_SPECULAR, &specular);
+
+
+        return Mesh(
+                vertices,
+                indices,
+                glm::vec4(diffuse.r, diffuse.g, diffuse.b, diffuse.a),
+                glm::vec4(specular.r, specular.g, specular.b, specular.a)
+
+                );
+
+
+    }
 
     std::vector<Texture> diffuse_maps = load_material_texture(
             material,

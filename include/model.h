@@ -11,10 +11,10 @@
 #include <assimp/postprocess.h>
 
 
-unsigned int texture_from_file(const char* path, const std::string& directory, bool gamma=false);
+unsigned int texture_from_file(const char* path, const std::string& directory,bool gamma=false);
 
 struct Model {
-    Model(const std::string& path, bool gamma=false);
+    Model(const std::string& path, bool texture_active=true, bool gamma=false);
     void draw();
     void update();
     void process_node(aiNode* node, const aiScene* scene);
@@ -29,6 +29,10 @@ struct Model {
 
     Shader* shader;
     glm::vec3 position;
+
+
+
+    bool texture_active;
 
 
 
