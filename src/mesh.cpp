@@ -6,7 +6,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
     indices(indices),
     textures(textures) {
         init();
-        texture_active = true;
+        has_texture = true;
 }
 
 
@@ -18,7 +18,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices,
     specular(specular)
      {
          init();
-         texture_active = false;
+         has_texture = false;
 
 }
 
@@ -114,7 +114,7 @@ void Mesh::draw(Shader* shader) {
     unsigned int normal_nr = 1;
     unsigned int height_nr = 1;
 
-    if(texture_active) {
+    if(has_texture) {
 
         for(unsigned int i = 0; i < textures.size(); i += 1) {
 

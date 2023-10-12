@@ -9,7 +9,11 @@
 #include "stb_image.h"
 #include <glm/gtx/string_cast.hpp>
 
-Model::Model(const std::string& path, bool texture_active,  bool gamma):texture_active(texture_active), gamma_correction(gamma) {
+Model::Model(
+        const std::string& path,
+        const std::string& vertex_shader_path,
+        const std::string& fragment_shader_path,
+        bool has_texture ,  bool gamma):has_texture(has_texture), gamma_correction(gamma) {
 
     Assimp::Importer importer;
 
@@ -34,7 +38,8 @@ Model::Model(const std::string& path, bool texture_active,  bool gamma):texture_
     position = glm::vec3(0.0f, 0.0f, -3.0f);
 
     //shader = new Shader("../shaders/model.vs", "../shaders/model.fs");
-    shader = new Shader("../shaders/beach-ball.vs", "../shaders/beach-ball.fs");
+    //shader = new Shader("../shaders/beach-ball.vs", "../shaders/beach-ball.fs");
+    shader = new Shader(vertex_shader_path.c_str(), fragment_shader_path.c_str());
 
 }
 
@@ -112,7 +117,7 @@ Mesh Model::process_mesh(aiMesh* mesh, const aiScene* scene) {
 
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
-    if(texture_active == false) {
+    if(has_texture == false) {
         aiColor4D diffuse;
         aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diffuse);
 

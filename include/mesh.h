@@ -49,7 +49,7 @@ struct Mesh {
     glm::vec4 diffuse;
     glm::vec4 specular;
 
-    bool texture_active;
+    bool has_texture;
 }; 
 
 #endif
